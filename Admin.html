@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; 
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #E9967A;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .sidebar h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+        }
+        .sidebar a:hover {
+            background-color: #E9967A;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .main-content h2 {
+            margin-top: 0;
+        }
+        .form-container, .question-buttons, .feedback-buttons, .response-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+        .form-container form, .feedback-buttons button, .question-buttons button, .response-buttons button {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container form input, .form-container form button, .feedback-buttons button, .question-buttons button, .response-buttons button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .feedback-buttons button, .question-buttons button, .response-buttons button {
+            background-color: rgb(136, 136, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-buttons button:hover, .question-buttons button:hover, .response-buttons button:hover {
+            background-color: rgb(192, 192, 192);
+        }
+        .right-image {
+            float: left;
+            margin: 10px;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Admin</h1>
+            <u><a href="#" onclick="showFeedbackButtons()">Questions</a></u>
+            <u><a href="#" onclick="showResponseButtons()">Responses</a></u>
+        </div>
+           <img src="data:image/png;base64,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" alt="VVIT Logo" class="right-image">
+
+        <div class="main-content">
+            <h2>Welcome to the Admin Dashboard</h2>
+            <div class="form-container">
+                <form id="questionForm">
+                    <h3>Add a New Question</h3>
+                    <label for="question">Question:</label>
+                    <input type="text" id="question" name="question" required>
+                    <button type="submit">Add Question</button>
+                </form>
+            </div>
+            <div class="feedback-buttons">
+                <button onclick="showForm()">Faculty Feedback</button>
+                <button onclick="showForm()">Student Feedback</button>
+                <button onclick="showForm()">Alumni Feedback</button>
+                <button onclick="showForm()">Employer Feedback</button>
+                <button onclick="showForm()">Parent Feedback</button>
+            </div>
+            <div class="response-buttons">
+                <button  onclick="myFunction()">Faculty Responses</button>
+                <script>
+    function myFunction() {
+        window.location.href = "Jfreepie";
+      }</script>
+    
+                <button onclick="myfunction1()">Student Responses</button>
+                <script>
+    function myfunction1() {
+        window.location.href = "JfreepieStudent";
+      }</script>
+                <button onclick="myfunction3()">Alumni Responses</button>
+                <script>
+    function myfunction3() {
+        window.location.href = "JfreepieAlumni";
+      }</script>
+                <button onclick="myfunction4()">Employer Responses</button>
+                <script>
+    function myfunction4() {
+        window.location.href = "JfreepieEmployee";
+      }</script>
+                <button onclick=myfunction5()>Parent Responses</button>
+                <script>
+    function myfunction5() {
+        window.location.href = "JfreepieParent";
+      }</script>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showForm() {
+            document.querySelector('.form-container').style.display = 'block';
+            document.querySelector('.question-buttons').style.display = 'none';
+            document.querySelector('.response-buttons').style.display = 'none';
+        }
+
+        function showFeedbackButtons() {
+            document.querySelector('.form-container').style.display = 'none';
+            document.querySelector('.feedback-buttons').style.display = 'block';
+            document.querySelector('.response-buttons').style.display = 'none';
+        }
+
+        function showResponseButtons() {
+            document.querySelector('.form-container').style.display = 'none';
+            document.querySelector('.feedback-buttons').style.display = 'none';
+            document.querySelector('.response-buttons').style.display = 'block';
+        }
+
+        document.getElementById('questionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+            alert('Question added: ' + question);
+            document.getElementById('questionForm').reset();
+        });
+    </script>
+</body>
+</html>
