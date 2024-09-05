@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Feedback on Curriculum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .center {
+            text-align: center;
+        }
+        .container1 {
+			width: 80%;
+			margin: 40px auto;
+			text-align: top;
+		}
+		.right-image {
+           float: left;
+           margin: 60px;
+           height:200px;
+           width:200px;
+   /* add some margin for spacing */
+}
+        
+    </style>
+</head>
+<body>
+<img src="data:image/png;base64,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" alt="VVIT Logo" class="right-image">
+       <div class="container1"><center>
+	<h1 style="color:red">Vasireddy Venkatadri Institute of Technology</h1>
+	<center><h5>Approved by AICTE,ISO 9001:2008 certified permanently Affilliated to JNTU,Kakinada,Accredited by NAAC with 'A' Grade</h5></center>
+	<center><h5>Nambur, Pedakakani (M), Guntur (Dt) - 522508</h5></center>
+	<center><h2 style="color:blue">Department of Information Technology</h2></center>
+	<center><h4>B.Tech Programme Accredited by NBA</h4></center>
+    </center>
+		
+	</div>
+
+    <div class="container">
+        <center><h1><u>Student Feedback on Curriculum</h1></u></center>
+        <form id="StudentForm" method="POST" action="HandleStudent">
+            <div class="form-group">
+                <label for="studentName">Name of the Student:</label>
+                <input type="text" id="studentName" name="studentName" required style="border:none;outline:none;background:transparent;border-bottom:1px solid">
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="academicYear">Academic Year:</label>
+                <input type="text" id="academicYear" name="academicYear" required style="border:none;outline:none;background:transparent;border-bottom:1px solid">
+                
+            </div>
+            <div class="form-group">
+                <label for="regulation">Regulations:</label>
+                <input type="text" id="regulation" name="regulation" required style="border:none;outline:none;background:transparent;border-bottom:1px solid">
+                
+            </div>
+            <div class="form-group">
+                <label for="rollNo">Roll No:</label>
+                <input type="text" id="rollNo" name="rollNo" required style="border:none;outline:none;background:transparent;border-bottom:1px solid">
+                
+            </div>
+     
+            <div class="form-group">
+                <label for="yearSection">Year & Section:</label>
+                <input type="text" id="yearSection" name="yearSection" required style="border:none;outline:none;background:transparent;border-bottom:1px solid">
+                
+            </div>
+            
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Parameter</th>
+                    <th>Response (YES/NO)</th>
+                    <th>Comments/Suggestions</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Do you support the proposed initiative to revise the Curriculum?</td>
+                    <td>
+                        <select name="response1">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments1"></textarea></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Are there any specific topics that you believe should be added to the curriculum? If yes, please specify</td>
+                    <td>
+                        <select name="response2">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments2"></textarea></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Are there any specific topics that you believe should be removed from the curriculum? If yes, please specify</td>
+                    <td>
+                        <select name="response3">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments3"></textarea></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Do you recommend introducing new courses? If yes, please provide details</td>
+                    <td>
+                        <select name="response4">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments4"></textarea></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Is it important to incorporate practical experiences or hands on projects into the curriculum?</td>
+                    <td>
+                        <select name="response5">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments5"></textarea></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Are there particular soft skills (communication, teamwork, etc.) that you believe should be emphasized the curriculum?</td>
+                    <td>
+                        <select name="response6">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments6"></textarea></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Should the Curriculum include courses that encourage interdisciplinary learning? if yes, please provide suggestions for potential interdisciplinary integration.</td>
+                    <td>
+                        <select name="response7">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments7"></textarea></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Does the curriculum foster stronger industry-academia collaboration?</td>
+                    <td>
+                        <select name="response8">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments8"></textarea></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Are there specific ways to infuse research and innovation opportunities into the curriculum?</td>
+                    <td>
+                        <select name="response9">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments9"></textarea></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Any additional suggestions, ideas or comments regarding the curriculum revision?</td>
+                    <td>
+                        <select name="response10">
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                    <td><textarea name="comments10"></textarea></td>
+                </tr>
+                
+                <!-- Repeat similar rows for other questions -->
+            </table>
+            <div class="form-group">
+                <label for="signature">Signature of the Faculty:</label>
+                <input type="text" id="signature" name="signature" required style="border:none;outline:none;background:transparent;border-bottom:1px solid">
+                
+            </div>
+            <div class="center">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
